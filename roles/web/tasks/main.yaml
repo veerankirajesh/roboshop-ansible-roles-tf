@@ -1,0 +1,39 @@
+- name: install nginx # install nginx module
+  ansible.builtin.package:
+    name: nginx
+    state: present
+
+- name: Delete html & directory  # old html files delete module
+  ansible.builtin.file:
+    path: /usr/share/nginx/html
+    state: absent
+
+- name: create html & directory # create default fies module  
+  ansible.builtin.file:
+    path: /usr/share/nginx/html
+    state: directory
+
+- name: Download web app # downlaod web app module
+  ansible.builtin.get_url:
+    url: https://roboshop-builds.s3.amazonaws.com/web.zip
+    dest: /tmp
+
+- name: Extract application # ansible extract file module
+  ansible.builtin.unarchive:
+    src: /tmp/web.zip
+    dest: /usr/share/nginx/html
+    remote_src: yes  
+
+# - name: Copy roboshop configuration # ansible copy module
+#   ansible.builtin.copy:
+#     src: roboshop.conf 
+#     dest: /etc/nginx/default.d/roboshop.conf 
+
+- name: Copy roboshop configuration # ansible copy module
+  ansible.builtin.template:
+    src: roboshop.conf.j2
+    dest: /etc/nginx/default.d/roboshop.conf
+  notify:
+  - Restart nginx 
+
+    
