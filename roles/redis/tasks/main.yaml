@@ -1,0 +1,25 @@
+- name: install remi release
+  ansible.builtin.dnf: # check pacakge will work not
+    name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+    state: present
+    disable_gpg_check: true #  Ansible to skip the GPG signature verification step.
+
+- name: enable redis # no module 
+  ansible.builtin.command:  dnf module enable redis:remi-6.2 -y  
+
+- name: Install redis # ansible dnf install packages
+  ansible.builtin.dnf:
+    name: redis 
+    state: present  
+
+- name: allow remote conncetions # ansible replace module 
+  ansible.builtin.replace:
+    path: /etc/redis.conf
+    regexp: '127.0.0.1'
+    replace: '0.0.0.0 '  
+
+- name: start and enable redis # ansible start&enable module 
+  ansible.builtin.service:
+    name: redis
+    state: restarted
+    enabled: yes      
