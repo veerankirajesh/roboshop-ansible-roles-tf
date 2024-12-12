@@ -1,0 +1,10 @@
+MONGODB_HOST: mongodb-prod.rajesh76.online  # submit your host
+REDIS_HOST: redis-prod.rajesh76.online 
+MYSQL_HOST: mysql-prod.rajesh76.online 
+RABBITMQ_HOST: rabbitmq-prod.rajesh76.online 
+CATALOGUE_HOST: catalogue-prod.rajesh76.online 
+USER_HOST: user-prod.rajesh76.online 
+CART_HOST: cart-prod.rajesh76.online 
+SHIPPING_HOST: shipping-prod.rajesh76.online 
+PAYMENT_HOST: payment-prod.rajesh76.online 
+DISPATCH_HOST: dispatch-prod.rajesh76.online

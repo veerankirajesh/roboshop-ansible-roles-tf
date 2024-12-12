@@ -1,0 +1,12 @@
+MONGODB_HOST: mongodb-dev.rajesh76.online  # submit your host
+REDIS_HOST: redis-dev.rajesh76.online 
+MYSQL_HOST: mysql-dev.rajesh76.online 
+RABBITMQ_HOST: rabbitmq-dev.rajesh76.online 
+CATALOGUE_HOST: catalogue.app-dev.rajesh76.online
+USER_HOST: user.app-dev.rajesh76.online
+CART_HOST: cart.app-dev.rajesh76.online 
+SHIPPING_HOST: shipping.app-dev.rajesh76.online 
+PAYMENT_HOST: payment.app-dev.rajesh76.online 
+DISPATCH_HOST: dispatch.app-dev.rajesh76.online
+NEXUS_URL: http://172.31.29.138:8081/repository
+group_id: "com/roboshop"
